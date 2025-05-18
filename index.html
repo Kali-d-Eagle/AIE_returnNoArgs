@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Function Guide</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e3f2fd); 
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+    body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  /* background: url('./cloud4.png') bottom center/cover no-repeat; */
+  /* background: url('./cloud2.png') center center no-repeat; */
+  background: url('./reqNightTemp1.jpg') top right no-repeat; 
+  
+
+  opacity: 1;
+}
+
+
+body::after {
+  background: url('./tempPink.jpg') top center/contain no-repeat;
+  opacity: 1;
+}
+
+
+
+    header {
+      position: relative;
+      background: url('./reqMyEagle.jpg') center/cover no-repeat;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    /*
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background: linear-gradient(to bottom right, rgba(229, 229, 253, 0.7), rgba(240, 98, 217, 0.548));
+      backdrop-filter: blur(40px);
+      transition: opacity 0.4 ease;
+      z-index: 1;
+    }
+
+    header:hover::before{
+      opacity: 0;
+    }
+      */
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom right, rgba(10, 25, 47, 0.85), rgba(25, 42, 86, 0.75));
+        backdrop-filter: blur(40px);
+        transition: opacity 1.3s ease;
+        z-index: 1;
+      }
+      
+      header:hover::before {
+        opacity: 0;
+      }
+      
+      
+
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 8px #ffffffaa,
+          0 0 12px #00bfff,
+          0 0 24px #1e90ff;
+      }
+      to {
+        text-shadow:
+          0 0 16px #ffffff,
+          0 0 22px #00e0ff,
+          0 0 40px #1ec8ff;
+      }
+    }
+/*
+
+/*
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 8px #ffffffaa,
+      0 0 12px #ff69b4,
+      0 0 24px #ff1493;
+  }
+  to {
+    text-shadow:
+      0 0 16px #ffffff,
+      0 0 22px #ff66cc,
+      0 0 40px #ff1493;
+  }
+}
+  */
+
+  header h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow:
+      0 0 6px #ffffff,
+      0 0 12px #87cefa,
+      0 0 18px #4682b4;
+    animation: glow 2.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow:
+        0 0 4px #ffffff,
+        0 0 10px #87cefa,
+        0 0 16px #4682b4;
+    }
+    to {
+      text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #87ceeb,
+        0 0 30px #1e3f66,
+        0 0 40px #1e3f66;
+    }
+  }
+  
+  
+  
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 40px 30px;
+      /* background: rgba(255, 255, 255, 0.5); */
+      background: rgba(18, 32, 47, 0.4);
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      z-index: 1;
+      position: relative;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2, h3 {
+      color: #1e88e5;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    pre {
+      background-color: #f4faff;
+      border-left: 5px solid #3498db;
+      padding: 18px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+    }
+
+    .highlight, .note, .warning {
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin: 20px 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      background-color: #e9f4ff;
+      color: #000000;
+      border-left: 5px solid #5dade2;
+    }
+
+    .syntaxDiv{
+      color: #000000;
+    }
+    .note {
+      background-color: #eafaf1;
+      color: #000000;
+      border-left: 5px solid #27ae60;
+    }
+
+    .warning {
+      background-color: #fff0f3;
+      border-left: 5px solid #e74c3c;
+    }
+
+    a {
+      color: #1e88e5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #1565c0;
+      text-decoration: underline;
+    }
+
+    footer {
+      background: linear-gradient(to right, #1e88e5, #1565c0);
+      color: #ffffff;
+      text-align: center;
+      padding: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      border-top: 3px solid #0d47a1;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      position: relative;
+    }
+
+    code {
+      background-color: #f0f8ff;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 90%;
+      color: #000000;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    .tooltip {
+      position: relative;
+      cursor: help;
+    }
+    
+    .tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff00d9;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 7px;
+      white-space: nowrap;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease-in-out;
+      z-index: 130;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    }
+    
+    .tooltip:hover::after {
+      opacity: 0.4;
+    }
+    
+    cite{
+      background-color: #4ba9fc;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 90%;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>AESTHETIC INSTITUTION OF EAGLES</h1>
+  
+  
+</header>
+
+
+<div class="container">
+  <!-- Your content remains unchanged (already excellent!) -->
+  <!-- All sections: #intro, #void-noargs etc. stay same -->
+  <!-- Just plug in your earlier <section> elements here -->
+
+    
+<section id="return-noargs">
+    <h2>🔹 3. Return <span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> (No <span class="tooltip" data-tooltip="Arguments">Args)</span></h2>
+    <p>
+
+      Ye <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> aise hota h jisme <strong>return value</strong> hoti h, lekin koi <strong> nhi dia jata</strong>.<br>
+      "Return" ka <span class="tooltip" data-tooltip="matlab">mtb</span> h: <em><span class="tooltip" data-tooltip="function">f<sup>n</sup></span> ek value return krega</em>.<br>
+      "No <span class="tooltip" data-tooltip="Arguments">Args</span>  h: <em><span class="tooltip" data-tooltip="function">f<sup>n</sup></span> ko koi <span class="tooltip" data-tooltip="input">i/p</span> pass nhi krenge</em>, bs <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> apna kaam karega aur ek value return krega!
+    </p>
+
+    <div class="highlight">
+        <strong>💡 Real-Life Analogy:</strong><br>
+        Sochiye aap ek pre-packed meal order kr rhe ho.<br><br>
+
+        🍽️ Ordering the packed food is like placing a <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> call!<br>
+        Aapko koi <span class="tooltip" data-tooltip="special">spl</span> <span class="tooltip" data-tooltip="input">i/p</span> nhi dena padta (jaise "extra spices daalo" ya "salt kam karo").<br>
+        🍱 Aap bs ek pre-packed meal order karte ho.<br>
+        🛵 Delivery service aapko meal return kr deti h — ye aapka <strong>return value</strong> h<br>
+        ✅ Aapne koi custom <span class="tooltip" data-tooltip="input">i/p</span> nhi diya, bas ek meal (<span class="tooltip" data-tooltip="output">o/p</span> mil gya!<br><br>
+
+        Yhi hota h <strong>return <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> with no <span class="tooltip" data-tooltip="arguments">args</span></strong>:
+        <ul>
+          <li>🍱 Pre-packed Meal = <span class="tooltip" data-tooltip="function">f<sup>n</sup></span></li>
+          <li>❌ Aapne koi <span class="tooltip" data-tooltip="special">spl</span> instruction nhi diye</li>
+          <li>🍽️ Meal = return value</li>
+          <li>✅ Aapko result mil gya (<span class="tooltip" data-tooltip="output">o/p</span> — meal)</li>
+        </ul>
+    </div>
+
+    <h3>🔧 Syntax (Structure)</h3>
+    <!-- <pre><code>returnType functionName() {
+      // function ka kaam
+      return value;
+    }</code></pre> -->
+    <div class="syntaxDiv">
+    <pre><code>
+returnType functionName(){
+    // <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> ka kaam
+    return value;
+}
+    </code></pre>
+</div>
+
+    <p><strong>Breakdown:</strong></p>
+    <ul>
+      <li><cite>returnType</cite> : <span class="tooltip" data-tooltip="Function"> F<sup>n</sup></span> ka return type, jo return kia jayega (e.g., <cite>int</cite>, <cite>float</cite>)</li>
+      <li><cite>functionName()</cite> : <span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> ka naam + empty brackets (no <span class="tooltip" data-tooltip="input">i/p</span></li>
+      <li><cite>{ }</cite> : <span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> ka kaam yha likha jata h</li>
+      <li><cite>return value;</cite> : <span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> ek value return karta h</li>
+    </ul>
+
+    <div class="note">
+      <strong>Use Kb kre?</strong><br>
+      Jab aapko kisi process k baad result chahiye ho aur aapko us result ko khi aur use krna ho.
+    </div>
+
+    <h3>✅ <span class="tooltip" data-tooltip="Example">eg</span>1: Return a Fixed Number</h3>
+    <pre><code>
+int getNumber() {
+    return 4;
+}</code></pre>
+    <p><strong>Explanation:</strong> Yeh <span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> hmesha 4 ko return krega, koi <span class="tooltip" data-tooltip="input">i/p</span> nhi h, bs ek value return ho rhi h.</p>
+
+    <h3>✅ <span class="tooltip" data-tooltip="Example">eg</span> 2: Return d <span class="tooltip" data-tooltip="Square">Sqr</span> of a <span class="tooltip" data-tooltip="Number">Num</span></h3>
+    <pre><code>
+int getSquare() {
+    int num;
+    cout << "Enter a num :\t";
+    return num * num; // pow(num,2);
+}</code></pre>
+    <p><strong>Explanation:</strong> Ye <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> koi <span class="tooltip" data-tooltip="number">num</span> ka <span class="tooltip" data-tooltip="square">sqr</span> return krega, lekin <span class="tooltip" data-tooltip="input">i/p</span> pass nhi kiya jayega. Internal calculation hoga.</p>
+
+    <h3>✅ <span class="tooltip" data-tooltip="Example">eg</span> 3: Return Current Year</h3>
+    <pre><code>
+int getCurrentYear() {
+    return 2024;
+}</code></pre>
+    <p><strong>Explanation:</strong> Yeh <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> current year ko return karega — koi <span class="tooltip" data-tooltip="input">i/p</span> nhi, bas ek value return hoti h.</p>
+
+    <h3>💡 Kaise Use Karte Hain?</h3>
+    <pre><code>
+int main() {
+    int result = getNumber();     // <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> call with return value
+    int square = getSquare();     // <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> call with return value
+    int year = getCurrentYear();  // <span class="tooltip" data-tooltip="function">f<sup>n</sup></span> call with return value
+
+    cout << "Number: " << result << endl;
+    cout << "Square: " << square << endl;
+    cout << "Year: " << year << endl;
+    return 0;
+}</code></pre>
+<pre><code>
+
+    <p><strong>Explanation:</strong> <span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> call karte wqt return value ko store kiya jata h, jo baad mein print ki jaati h.</p>
+
+    <div class="warning">
+      ⚠️ <strong>Common Mistakes:</strong>
+      <ul>
+        <li><span class="tooltip" data-tooltip="Function">F<sup>n</sup></span> ko return value dena bhool jana (❌ <code>return;</code> without a value)</li>
+        <li>Return type aur return value ka match na hona (e.g., returning <code>string</code> from an <code>int</code> <span class="tooltip" data-tooltip="function">f<sup>n</sup></span>)</li>
+        <li><span class="tooltip" data-tooltip="function">f<sup>n</sup></span> ka value use na karna after returning (e.g., <code>int result = getNumber();</code> without using <code>result</code>)</li>
+      </ul>
+    </div>
+
+    <h3>🧠 Short Summary</h3>
+    <ul>
+      <li><strong><span class="tooltip" data-tooltip="Input">I/p</span> nhi chahiye</strong>, lekin <strong><span class="tooltip" data-tooltip="output">o/p</span>ya return value</strong> chahiye</li>
+      <li><strong>Result ko kahin aur use karne ke liye return hota h</strong></li>
+      <li><strong>Simple calculation aur result return karne ke liye perfect</strong></li>
+      <li><strong>Easy to use, helpful in functional programming</strong></li>
+    </ul>
+
+</section>
+
+    
+
+</div>
+
+
+
+<footer>
+  A PPG! Course from ur Sarrr on Functions
+</footer>
+</body>
+</html>
+
